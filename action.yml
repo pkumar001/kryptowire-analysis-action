@@ -1,13 +1,12 @@
 name: "Kryptowire Analysis"
 description: "Greet someone and record the time"
 inputs:
-  path-to-file: # id of input
-    description: "Who to greet"
+  path-to-file: # apk file
+    description: "Path to the artifact file"
     required: true
-    default: "World"
-outputs:
-  time: # id of output
-    description: "The time we greeted you"
+  platform:
+    description: "Platform the apk belongs to"
+    required: true
 runs:
   using: "node12"
   main: "index.js"

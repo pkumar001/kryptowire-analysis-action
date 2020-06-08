@@ -12,3 +12,4 @@ jobs:
         id: appSubmit
         with:
           path-to-file: "Prem"
+          platform: "android"
