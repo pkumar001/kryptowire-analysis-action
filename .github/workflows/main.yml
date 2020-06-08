@@ -5,8 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Submit app to Kryptowire Portal
     steps:
-      - name: App submission action step
-        id: hello
-        uses: pkumar001/hello-world-javascript-action@master
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Kryptowire Analysis Submission
+        uses: ./ # Uses an action in the root directory
+        id: appSubmit
         with:
-          who-to-greet: "Mona the Octocat"
+          who-to-greet: "Prem"
