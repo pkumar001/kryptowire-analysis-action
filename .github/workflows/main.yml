@@ -11,4 +11,4 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: appSubmit
         with:
-          who-to-greet: "Prem"
+          path-to-file: "Prem"
