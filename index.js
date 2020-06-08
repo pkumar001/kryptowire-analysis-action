@@ -1,6 +1,5 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
-const FormData = require("form-data");
 const axios = require("axios").default;
 const fs = require("fs");
 
