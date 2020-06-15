@@ -19,9 +19,13 @@ async function run() {
     const platform = core.getInput("platform");
     console.log(`Platform: ${platform}`);
 
+    // `apiKey` input defined in action metadata file
+    const apiKey = core.getInput("apiKey");
+    console.log(`Platform: ${apiKey}`);
+
     // Create the form for Portal submission
     const form = new FormData();
-    form.append("key", "gCkN9ZEevDVY1SqgXxL1lXcPGO7iRHrMomqu");
+    form.append("key", apiKey);
     form.append("platform", platform);
     form.append("app", fs.createReadStream(pathToFile));
 
@@ -41,8 +45,6 @@ async function run() {
     } catch (err) {
       console.log("Error with upload:", err);
     }
-
-    console.log(`Form: ${form}`);
   } catch (error) {
     core.setFailed(error.message);
   }

@@ -7,6 +7,9 @@ inputs:
   platform:
     description: "Platform the apk belongs to"
     required: true
+  apiKey:
+    description: "API Key for the user"
+    required: true
 runs:
   using: "node12"
   main: "index.js"
