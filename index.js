@@ -7,7 +7,9 @@ try {
   const pathToFile = core.getInput("path-to-file");
   console.log(`Path: ${pathToFile}`);
   if (fs.existsSync(pathToFile)) {
-    console.log(`File exists`);
+    console.log(`File Exists`);
+  } else {
+    console.log(`File Does Not Exist`);
   }
 
   // `platform` input defined in action metadata file
