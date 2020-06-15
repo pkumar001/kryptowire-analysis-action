@@ -1,7 +1,7 @@
 name: "Kryptowire Analysis"
 description: "Submit apk file to the Kryptowire Portal for analysis"
 inputs:
-  path-to-file: # apk file
+  path-to-file:
     description: "Path to the artifact file"
     required: true
   platform:
@@ -12,4 +12,11 @@ inputs:
     required: true
 runs:
   using: "node12"
+  pre: actions/download-artifact@v2
+  with:
+    name: apk
+    path: path/to/artifact
   main: "index.js"
+branding:
+  icon: "award"
+  color: "green"
