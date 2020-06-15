@@ -21,7 +21,7 @@ async function run() {
 
     // Create the form for Portal submission
     const form = new FormData();
-    form.append("key", "fis1nlaLwso5kxAjYLcPEnU9lD5g9I0UlZb8");
+    form.append("key", "gCkN9ZEevDVY1SqgXxL1lXcPGO7iRHrMomqu");
     form.append("platform", platform);
     form.append("app", fs.createReadStream(pathToFile));
 
