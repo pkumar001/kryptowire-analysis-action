@@ -23,6 +23,23 @@ try {
   form.append("platform", platform);
   form.append("app", fs.createReadStream(pathToFile));
 
+  const formHeaders = form.getHeaders();
+  try {
+    const response = await axios.post(
+      "https://emm.kryptowire.com/api/submit",
+      form,
+      {
+        headers: {
+          ...formHeaders
+        },
+        maxContentLength: Infinity
+      }
+    );
+    console.log("KryptowireUUID: ", response.data.uuid);
+  } catch (err) {
+    console.log("Error with upload:", err);
+  }
+
   console.log(`Form: ${form}`);
 } catch (error) {
   core.setFailed(error.message);
