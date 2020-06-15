@@ -3,44 +3,48 @@ const github = require("@actions/github");
 const fs = require("fs");
 const FormData = require("form-data");
 
-try {
-  // `path-to-file` input defined in action metadata file
-  const pathToFile = core.getInput("path-to-file");
-  console.log(`Path: ${pathToFile}`);
-  if (fs.existsSync(pathToFile)) {
-    console.log(`File Exists`);
-  } else {
-    console.log(`File Does Not Exist`);
-  }
-
-  // `platform` input defined in action metadata file
-  const platform = core.getInput("platform");
-  console.log(`Platform: ${platform}`);
-
-  // Create the form for Portal submission
-  const form = new FormData();
-  form.append("key", "fis1nlaLwso5kxAjYLcPEnU9lD5g9I0UlZb8");
-  form.append("platform", platform);
-  form.append("app", fs.createReadStream(pathToFile));
-
-  const formHeaders = form.getHeaders();
+async function run() {
   try {
-    const response = await axios.post(
-      "https://emm.kryptowire.com/api/submit",
-      form,
-      {
-        headers: {
-          ...formHeaders
-        },
-        maxContentLength: Infinity
-      }
-    );
-    console.log("KryptowireUUID: ", response.data.uuid);
-  } catch (err) {
-    console.log("Error with upload:", err);
-  }
+    // `path-to-file` input defined in action metadata file
+    const pathToFile = core.getInput("path-to-file");
+    console.log(`Path: ${pathToFile}`);
+    if (fs.existsSync(pathToFile)) {
+      console.log(`File Exists`);
+    } else {
+      console.log(`File Does Not Exist`);
+    }
 
-  console.log(`Form: ${form}`);
-} catch (error) {
-  core.setFailed(error.message);
+    // `platform` input defined in action metadata file
+    const platform = core.getInput("platform");
+    console.log(`Platform: ${platform}`);
+
+    // Create the form for Portal submission
+    const form = new FormData();
+    form.append("key", "fis1nlaLwso5kxAjYLcPEnU9lD5g9I0UlZb8");
+    form.append("platform", platform);
+    form.append("app", fs.createReadStream(pathToFile));
+
+    const formHeaders = form.getHeaders();
+    try {
+      const response = await axios.post(
+        "https://emm.kryptowire.com/api/submit",
+        form,
+        {
+          headers: {
+            ...formHeaders
+          },
+          maxContentLength: Infinity
+        }
+      );
+      console.log("KryptowireUUID: ", response.data.uuid);
+    } catch (err) {
+      console.log("Error with upload:", err);
+    }
+
+    console.log(`Form: ${form}`);
+  } catch (error) {
+    core.setFailed(error.message);
+  }
 }
+
+run();
