@@ -1,21 +1,40 @@
-# Hello world javascript action
+# Kryptowire App Submission Action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action takes the file path, platform & API key as input and submits the apk file to Kryptowire Portal for analysis
 
 ## Inputs
 
-### `who-to-greet`
+### `pathToFile`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The path to the artifact apk file.
+
+### `platform`
+
+**Required** The platform (android/ios) of the app.
+
+### `apiKey`
+
+**Required** API key of the user.
 
 ## Outputs
 
-### `time`
+### `KryptowireUUID`
 
-The time we greeted you.
+UUID of the submitted app for analysis.
 
 ## Example usage
 
-uses: actions/kryptowire-analysis-action@v1
-with:
-who-to-greet: 'Mona the Octocat'
+steps: - uses: actions/checkout@v2
+
+    - uses: actions/download-artifact@v2
+        with:
+            name: apk
+            path: path/to/artifact
+
+    - name: Kryptowire Analysis Submission
+        id: appSubmission
+        uses: pkumar001/kryptowire-analysis-action@master
+        with:
+            path-to-file: path/to/artifact/app-prod-debug.apk
+            platform: "android"
+            apiKey: "************************************"

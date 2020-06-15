@@ -21,7 +21,6 @@ async function run() {
 
     // `apiKey` input defined in action metadata file
     const apiKey = core.getInput("apiKey");
-    console.log(`Platform: ${apiKey}`);
 
     // Create the form for Portal submission
     const form = new FormData();
