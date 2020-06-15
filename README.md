@@ -24,7 +24,9 @@ UUID of the submitted app for analysis.
 
 ## Example usage
 
-steps: - uses: actions/checkout@v2
+steps:
+
+    - uses: actions/checkout@v2
 
     - uses: actions/download-artifact@v2
         with:
