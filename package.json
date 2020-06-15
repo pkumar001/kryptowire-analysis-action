@@ -19,6 +19,7 @@
   "homepage": "https://github.com/pkumar001/kryptowire-analysis-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
-    "@actions/github": "^3.0.0"
+    "@actions/github": "^3.0.0",
+    "@actions/form-data": "2.3.1"
   }
 }
