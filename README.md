@@ -2,11 +2,21 @@
 
 This action takes the file path, platform & API key as input and submits the app file to Kryptowire Portal for analysis
 
+## Prerequisite
+
+### Set API Key
+
+- Go to **Settings**
+- Select **Secrets** under left column
+- Click on **New Secret**
+- Provide **Name: KRYPTOWIRE_API_KEY** & **Value** as your own Kryptowire API Key
+- Click on **Add Secret**
+
 ## Inputs
 
 ### `pathToFile`
 
-**Required** The path to the artifact apk file.
+**Required** The path to the artifact file.
 
 ### `platform`
 
@@ -29,7 +39,7 @@ steps:
 
     - uses: actions/download-artifact@v2
         with:
-            name: app
+            name: app # Name of artifact holding the app file
             path: path/to/artifact
 
     - name: Kryptowire Analysis Submission
