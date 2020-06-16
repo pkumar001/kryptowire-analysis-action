@@ -29,7 +29,7 @@ steps:
 
     - uses: actions/download-artifact@v2
         with:
-            name: apk
+            name: app
             path: path/to/artifact
 
     - name: Kryptowire Analysis Submission
