@@ -10,7 +10,6 @@ inputs:
   apiKey:
     description: "API Key for the user"
     required: true
-    default: ${{ secrets.KRYPTOWIRE_API_KEY }}
 runs:
   using: "node12"
   main: "index.js"
