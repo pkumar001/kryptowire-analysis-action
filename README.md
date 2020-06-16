@@ -26,8 +26,6 @@ UUID of the submitted app for analysis.
 
 steps:
 
-    - uses: actions/checkout@v2
-
     - uses: actions/download-artifact@v2
         with:
             name: apk
@@ -39,4 +37,4 @@ steps:
         with:
             path-to-file: path/to/artifact/app-prod-debug.apk
             platform: "android"
-            apiKey: "************************************"
+            apiKey: ${{ secrets.KRYPTOWIRE_API_KEY }}
