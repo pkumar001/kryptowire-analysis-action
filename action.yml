@@ -5,7 +5,7 @@ inputs:
     description: "Path to the artifact file"
     required: true
   platform:
-    description: "Platform the apk belongs to"
+    description: "Platform the app belongs to"
     required: true
   apiKey:
     description: "API Key for the user"
@@ -15,7 +15,7 @@ runs:
   using: "node12"
   pre: actions/download-artifact@v2
   with:
-    name: apk
+    name: app
     path: path/to/artifact
   main: "index.js"
 branding:
