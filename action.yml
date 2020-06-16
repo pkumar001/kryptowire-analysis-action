@@ -1,5 +1,5 @@
 name: "Kryptowire Analysis"
-description: "Submit apk file to the Kryptowire Portal for analysis"
+description: "Submit app file to the Kryptowire Portal for analysis"
 inputs:
   path-to-file:
     description: "Path to the artifact file"

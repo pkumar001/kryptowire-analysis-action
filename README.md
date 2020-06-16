@@ -1,6 +1,6 @@
 # Kryptowire App Submission Action
 
-This action takes the file path, platform & API key as input and submits the apk file to Kryptowire Portal for analysis
+This action takes the file path, platform & API key as input and submits the app file to Kryptowire Portal for analysis
 
 ## Inputs
 
@@ -15,6 +15,7 @@ This action takes the file path, platform & API key as input and submits the apk
 ### `apiKey`
 
 **Required** API key of the user.
+**Default** \${{ secrets.KRYPTOWIRE_API_KEY }}
 
 ## Outputs
 
