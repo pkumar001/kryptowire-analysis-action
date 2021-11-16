@@ -40,7 +40,8 @@ async function run() {
           maxContentLength: Infinity
         }
       );
-      console.log("KryptowireUUID: ", response.data.uuid);
+      console.log("::set-output name=uuid::" + response.data.uuid);
+      console.log("KryptowireUUID:", response.data.uuid);
     } catch (err) {
       console.log("Error with upload:", err);
     }

@@ -10,6 +10,9 @@ inputs:
   apiKey:
     description: "API Key for the user"
     required: true
+outputs:
+  uuid:
+    description: 'Submitted analysis uuid'
 runs:
   using: "node12"
   main: "index.js"
